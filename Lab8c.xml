@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juicers>
+
+    <juicer id="1"> 
+        <description>High speed juicer</description>
+        <warranty>2 years</warranty>
+        <name>Super Juicer 3000</name>
+        <image>super3000.jpg</image>
+        <weight unit="kg">5.0</weight>
+        <cost currency="pound">120.50</cost>
+        <cost currency="inr">115.00</cost>
+        <retailer>http://www.superstore.com</retailer>
+    </juicer>
+
+    <juicer id="2">
+        <description>High speed juicer</description>
+        <guarantee>2 years</guarantee>
+        <name>Super Juicer 3000</name>
+        <image>super3000.jpg</image>
+        <weight unit="kg">5.0</weight>
+        <cost currency="aud">120.50</cost>
+        <cost currency="usd">115.00</cost>
+        <retailer>http://www.superstore.com</retailer>
+    </juicer>
+
+</juicers>
