@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<st:student
+    xmlns:st="http://www.example.com/student"
+    id="S101">
+
+  <st:name>Jils</st:name>
+  <st:age>21</st:age>
+
+</st:student>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="money">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="6"/>
+            <xs:fractionDigits value="2"/>
+            <xs:minInclusive value="0.00"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="imageType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]+.(jpg|png)"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="warranty" type="xs:string"/>
+    <xs:element name="guarantee" type="xs:string" substitutionGroup="warranty"/>
+
+    <xs:complexType name="appliance">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element ref="warranty" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="costType">
+        <xs:simpleContent>
+            <xs:extension base="money">
+                <xs:attribute name="currency" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="weightType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="unit" fixed="kg"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="juiceAppliance">
+        <xs:complexContent>
+            <xs:extension base="appliance">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="image" type="imageType"/>
+                    <xs:element name="weight"
+                                type="weightType"
+                                minOccurs="0"/>
+                    <xs:element name="cost"
+                                type="costType"
+                                maxOccurs="unbounded"/>
+                    <xs:element name="retailer">
+                        <xs:complexType>
+                            <xs:attribute name="href" type="xs:anyURI" use="required"/>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="id" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:element name="juicers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="juicer"
+                            type="juiceAppliance"
+                            minOccurs="0"
+                            maxOccurs="unbounded">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
