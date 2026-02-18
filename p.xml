@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<st:student
-    xmlns:st="http://www.example.com/student"
+<stu:student
+    xmlns="http://www.example.com/student"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.example.com/student student.xsd"
     id="S101">
 
-  <st:name>Jils</st:name>
-  <st:age>21</st:age>
+  <stu:name>Jils</stu:name>
+  <stu:age>21</stu:age>
 
-</st:student>
+</stu:student>
