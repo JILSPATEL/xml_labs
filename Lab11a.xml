@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juicers xmlns="http://www.example.com/appliances">
+
+    <juicer id="1"> 
+        <description>High speed juicer</description>
+        <warranty>2 years</warranty>
+        <name>Super Juicer 3000</name>
+        <image>super3000.jpg</image>
+        <weight unit="kg">5.0</weight>
+        <cost currency="pound">120.50</cost>
+        <cost currency="inr">115.00</cost>
+        <retailer href="http://www.superstore.com"/>
+    </juicer>
+
+</juicers>
