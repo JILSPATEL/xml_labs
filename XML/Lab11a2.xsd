@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/appliances"
+           xmlns="http://www.example.com/appliances"
+           elementFormDefault="qualified">
+              <!-- Generic simple types -->
+    <xs:simpleType name="money">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="6"/>
+            <xs:fractionDigits value="2"/>
+            <xs:minInclusive value="0.00"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Warranty / Guarantee -->
+    <xs:element name="warranty" type="xs:string"/>
+    <xs:element name="guarantee" type="xs:string"
+                substitutionGroup="warranty"/>
+
+    <!-- Base appliance type -->
+    <xs:complexType name="appliance">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element ref="warranty" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Cost -->
+    <xs:complexType name="costType">
+        <xs:simpleContent>
+            <xs:extension base="money">
+                <xs:attribute name="currency"
+                              type="xs:string"
+                              use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Weight -->
+    <xs:complexType name="weightType">
+        <xs:simpleContent>
+            <xs:extension base="xs:decimal">
+                <xs:attribute name="unit" fixed="kg"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>

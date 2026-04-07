@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<juicers>
+    <juicer>
+        <name>Super Juicer 3000</name>
+        <image>super3000.jpg</image>
+        <description>High speed juicer</description>
+        <warranty>2 years</warranty>
+        <weight>5 kg</weight>
+        <cost>120</cost>
+        <cost>115</cost>
+        <retailer>www.superstore.com</retailer>
+    </juicer>
+</juicers>

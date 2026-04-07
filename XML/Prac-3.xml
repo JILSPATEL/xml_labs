@@ -1,0 +1,10 @@
+<bank>
+  <account AccType="Savings" Priority="High">
+    <AccNum>12345</AccNum>
+    <Name>John</Name>
+
+    <transaction type="credit">
+      <amount>5000</amount>
+    </transaction>
+  </account>
+</bank>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/appliances"
+           xmlns="http://www.example.com/appliances"
+           elementFormDefault="qualified">
+
+    <!-- Include the repository schema -->
+    <xs:include schemaLocation="Lab11a2.xsd"/>
+
+    <!-- Image type (juicer specific) -->
+    <xs:simpleType name="imageType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9]+\.(jpg|png)"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Juicer appliance -->
+    <xs:complexType name="juiceAppliance">
+        <xs:complexContent>
+            <xs:extension base="appliance">
+                <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="image" type="imageType"/>
+                    <xs:element name="weight"
+                                type="weightType"
+                                minOccurs="0"/>
+                    <xs:element name="cost"
+                                type="costType"
+                                maxOccurs="unbounded"/>
+                    <xs:element name="retailer">
+                        <xs:complexType>
+                            <xs:attribute name="href"
+                                          type="xs:anyURI"
+                                          use="required"/>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+                <xs:attribute name="id"
+                              type="xs:string"
+                              use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Root element -->
+    <xs:element name="juicers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="juicer"
+                            type="juiceAppliance"
+                            minOccurs="0"
+                            maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
